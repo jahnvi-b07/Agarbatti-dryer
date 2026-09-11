@@ -1,0 +1,506 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #eef3f7;
+    color: #17212b;
+}
+
+
+/* HEADER */
+
+header {
+    background: #07518d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 28px;
+}
+
+header p {
+    margin: 7px 0 0;
+}
+
+
+/* MAIN */
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+button {
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.start {
+    background: #168a49;
+}
+
+.stop {
+    background: #c63737;
+}
+
+.reset {
+    background: #555;
+}
+
+.cloud {
+    background: #dc9416;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+
+/* GRID */
+
+.grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 16px;
+}
+
+
+/* CARD */
+
+.card {
+    background: white;
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.card h2 {
+    color: #07518d;
+    margin-top: 0;
+}
+
+
+/* CHAMBER */
+
+.chamber {
+    width: 470px;
+    height: 520px;
+    max-width: 100%;
+    margin: auto;
+
+    position: relative;
+
+    border: 10px solid #687782;
+    background: white;
+
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+/* INSULATION */
+
+.insulation {
+    position: absolute;
+
+    inset: 14px;
+
+    border: 7px solid #e0a23b;
+}
+
+
+/* HEAT ZONE */
+
+.heater-zone {
+    position: absolute;
+
+    top: 30px;
+    left: 60px;
+    right: 60px;
+
+    height: 10px;
+
+    background: #f0442f;
+
+    box-shadow: 0 0 15px #f0442f;
+
+    z-index: 2;
+}
+
+
+/* TRAYS */
+
+.tray {
+    position: absolute;
+
+    left: 55px;
+
+    width: 340px;
+    height: 52px;
+
+    border: 3px solid #666;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #aaa 0 5px,
+            #eee 5px 8px
+        );
+
+    z-index: 3;
+
+    text-align: center;
+
+    padding-top: 15px;
+
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.tray1 {
+    top: 60px;
+}
+
+.tray2 {
+    top: 145px;
+}
+
+.tray3 {
+    top: 230px;
+}
+
+.tray4 {
+    top: 315px;
+}
+
+.tray5 {
+    top: 400px;
+}
+
+
+/* SENSOR */
+
+.sensor {
+    position: absolute;
+
+    right: 22px;
+    top: 225px;
+
+    background: #0874a8;
+    color: white;
+
+    padding: 7px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: bold;
+
+    z-index: 5;
+}
+
+
+/* COMMON WEIGHING PLATFORM */
+
+.weighing-platform {
+    position: absolute;
+
+    bottom: 65px;
+    left: 75px;
+
+    width: 320px;
+    height: 10px;
+
+    background: #555;
+
+    text-align: center;
+
+    font-size: 9px;
+    color: #222;
+}
+
+
+/* LOAD CELL */
+
+.load-cell {
+    position: absolute;
+
+    bottom: 38px;
+    left: 205px;
+
+    width: 60px;
+    height: 22px;
+
+    background: #222;
+
+    border-radius: 4px;
+
+    color: white;
+
+    font-size: 7px;
+
+    text-align: center;
+
+    padding-top: 7px;
+
+    z-index: 7;
+}
+
+
+/* AIRFLOW */
+
+.air-flow {
+    position: absolute;
+
+    bottom: 10px;
+    left: 25px;
+    right: 25px;
+
+    height: 40px;
+
+    background: #f57b20;
+
+    border-radius: 25px;
+}
+
+
+/* AIR ARROWS */
+
+.air-arrow {
+    position: absolute;
+
+    color: #ef541f;
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    z-index: 4;
+
+    animation: airflow 1s linear infinite;
+}
+
+.arrow1 {
+    left: 25px;
+    bottom: 70px;
+}
+
+.arrow2 {
+    right: 20px;
+    bottom: 120px;
+}
+
+.arrow3 {
+    left: 25px;
+    top: 100px;
+}
+
+.arrow4 {
+    right: 20px;
+    top: 95px;
+}
+
+
+@keyframes airflow {
+
+    50% {
+        transform: translateY(-8px);
+        opacity: 0.5;
+    }
+
+}
+
+
+/* AIR LABELS */
+
+.air-in,
+.air-out {
+    position: absolute;
+
+    padding: 6px;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+    font-weight: bold;
+
+    z-index: 8;
+}
+
+.air-in {
+    bottom: 0;
+    left: 0;
+
+    background: #1487dc;
+    color: white;
+}
+
+.air-out {
+    top: 0;
+    right: 0;
+
+    background: #df4931;
+    color: white;
+}
+
+
+/* METRICS */
+
+.metrics {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 9px;
+}
+
+.metric {
+    background: #edf5fb;
+
+    padding: 12px;
+
+    border-radius: 9px;
+}
+
+.metric small {
+    display: block;
+
+    color: #586875;
+}
+
+.metric b {
+    font-size: 22px;
+
+    color: #07518d;
+}
+
+
+/* STATUS */
+
+.status {
+    margin-top: 10px;
+
+    padding: 12px;
+
+    background: #eaf7ed;
+
+    border-left: 5px solid #168a49;
+
+    font-weight: bold;
+}
+
+
+/* COMPONENTS */
+
+.component {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid #ddd;
+}
+
+
+/* RANGE */
+
+input[type="range"] {
+    width: 100%;
+}
+
+
+/* PROGRESS */
+
+.progress-bar {
+    height: 16px;
+
+    background: #ddd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+
+    width: 0%;
+
+    background: #ef7b24;
+
+    transition: width 0.3s;
+}
+
+
+/* CONNECTION */
+
+.connection {
+    text-align: center;
+
+    font-weight: bold;
+
+    padding: 10px;
+
+    margin: 6px;
+
+    background: #edf5fb;
+
+    border-radius: 8px;
+}
+
+
+/* FULL WIDTH */
+
+.full {
+    grid-column: 1 / -1;
+}
+
+
+/* NOTE */
+
+.note {
+    color: #596875;
+
+    font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chamber {
+        transform: scale(0.9);
+
+        transform-origin: top center;
+
+        margin-bottom: -45px;
+    }
+
+}

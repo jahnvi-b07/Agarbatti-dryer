@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Smart Solar Agarbatti Dryer</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>☀️ Smart Solar-Powered Agarbatti Dryer</h1>
+    <p>Smart Drying Chamber Simulation</p>
+</header>
+
+<main>
+
+    <!-- Buttons -->
+    <div class="buttons">
+        <button class="start" onclick="startSimulation()">▶ Start</button>
+        <button class="stop" onclick="pauseSimulation()">⏸ Pause</button>
+        <button class="reset" onclick="resetSimulation()">↺ Reset</button>
+        <button class="cloud" onclick="toggleWeather()">☁ Cloudy Weather</button>
+    </div>
+
+    <div class="grid">
+
+        <!-- DRYING CHAMBER -->
+        <section class="card">
+            <h2>Drying Chamber</h2>
+
+            <div class="chamber">
+
+                <div class="insulation"></div>
+
+                <!-- Heating area -->
+                <div class="heater-zone"></div>
+
+                <!-- Trays -->
+                <div class="tray tray1">
+                    TRAY 1 — AGARBATTI
+                </div>
+
+                <div class="tray tray2">
+                    TRAY 2 — AGARBATTI
+                </div>
+
+                <div class="tray tray3">
+                    TRAY 3 — AGARBATTI
+                </div>
+
+                <div class="tray tray4">
+                    TRAY 4 — AGARBATTI
+                </div>
+
+                <div class="tray tray5">
+                    TRAY 5 — AGARBATTI
+                </div>
+
+                <!-- Temperature / Humidity sensor -->
+                <div class="sensor">
+                    🌡️ DHT22<br>
+                    T / RH
+                </div>
+
+                <!-- Common weighing platform -->
+                <div class="weighing-platform">
+                    WEIGHING PLATFORM
+                </div>
+
+                <!-- Load cell -->
+                <div class="load-cell">
+                    LOAD CELL
+                </div>
+
+                <!-- Airflow -->
+                <div class="air-flow"></div>
+
+                <div class="air-arrow arrow1">↑</div>
+                <div class="air-arrow arrow2">↑</div>
+                <div class="air-arrow arrow3">↑</div>
+                <div class="air-arrow arrow4">↑</div>
+
+                <div class="air-in">
+                    FRESH AIR IN
+                </div>
+
+                <div class="air-out">
+                    MOIST AIR OUT
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- CONTROL PANEL -->
+        <aside>
+
+            <section class="card">
+
+                <h2>ESP32 Live Data</h2>
+
+                <div class="metrics">
+
+                    <div class="metric">
+                        <small>Temperature</small>
+                        <b id="temperature">30.0°C</b>
+                    </div>
+
+                    <div class="metric">
+                        <small>Humidity</small>
+                        <b id="humidity">70%</b>
+                    </div>
+
+                    <div class="metric">
+                        <small>Batch Weight</small>
+                        <b id="weight">5.00 kg</b>
+                    </div>
+
+                    <div class="metric">
+                        <small>Drying Progress</small>
+                        <b id="progress">0%</b>
+                    </div>
+
+                </div>
+
+                <div class="status" id="status">
+                    SYSTEM READY
+                </div>
+
+            </section>
+
+
+            <!-- COMPONENTS -->
+            <section class="card">
+
+                <h2>System Components</h2>
+
+                <div class="component">
+                    <b>☀ Solar Panel</b>
+                    <span id="solar">ON</span>
+                </div>
+
+                <div class="component">
+                    <b>🔋 Battery</b>
+                    <span id="battery">85%</span>
+                </div>
+
+                <div class="component">
+                    <b>🌀 Fan</b>
+                    <span id="fan">30%</span>
+                </div>
+
+                <div class="component">
+                    <b>🔥 Backup Heater</b>
+                    <span id="heater">OFF</span>
+                </div>
+
+                <div class="component">
+                    <b>☁ Weather</b>
+                    <span id="weather">SUNNY</span>
+                </div>
+
+            </section>
+
+
+            <!-- TEMPERATURE CONTROL -->
+            <section class="card">
+
+                <h2>Temperature Control</h2>
+
+                <input
+                    type="range"
+                    min="35"
+                    max="50"
+                    value="45"
+                    id="targetTemperature"
+                    oninput="changeTargetTemperature()"
+                >
+
+                <p>
+                    Target:
+                    <strong>
+                        <span id="targetValue">45</span>°C
+                    </strong>
+                </p>
+
+            </section>
+
+        </aside>
+
+
+        <!-- PROGRESS -->
+        <section class="card full">
+
+            <h2>Drying Progress</h2>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+
+            <p class="note">
+                The simulation estimates drying using temperature,
+                humidity and batch-weight reduction.
+            </p>
+
+        </section>
+
+
+        <!-- CONNECTION -->
+        <section class="card full">
+
+            <h2>System Connection</h2>
+
+            <div class="connection">
+                ☀️ Solar Panel
+                →
+                🔋 Charge Controller
+                →
+                Battery
+                →
+                ESP32
+            </div>
+
+            <div class="connection">
+                🌡️ DHT22
+                +
+                ⚖️ Load Cell
+                →
+                HX711
+                →
+                ESP32
+            </div>
+
+            <div class="connection">
+                ESP32
+                →
+                🌀 Fan
+                +
+                🔥 Heater
+                +
+                📺 Display
+            </div>
+
+            <div class="connection">
+                Solar Air Heater
+                →
+                Fresh Air
+                →
+                Drying Chamber
+                →
+                Trays
+                →
+                Moist Air Outlet
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+
+</body>
+</html>
